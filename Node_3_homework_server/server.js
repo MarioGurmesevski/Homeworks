@@ -12,10 +12,10 @@ const student_server = http.createServer((req, res) => {
     } else if (req.url === '/student') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write('<h1>Student Information</h1>');
-        res.write('<p>Student Name: Your Name</p>');
-        res.write('<p>Student Last Name: Your Last Name</p>');
-        res.write('<p>Academy: The Academy You Are At</p>');
-        res.write('<p>Subject: The Current Subject We Are Learning</p>');
+        res.write('<p>Student Name: John</p>');
+        res.write('<p>Student Last Name: Doe</p>');
+        res.write('<p>Academy: SEDC</p>');
+        res.write('<p>Subject: Node JS</p>');
         res.end();
     } else {
         res.writeHead(404);
