@@ -3,4 +3,4 @@
 These are my Node JS homework
 
 * Homeworks
-  * [homework](/First Homework/)
+  * [homework](/node first homework/)
