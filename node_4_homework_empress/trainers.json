@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": "c1f0782d-1cb2-47ae-9fc3-ccb6fdf9918c",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "nesto.email.com",
+    "isCurrentlyTeaching": true,
+    "timeEmployed": "6 months",
+    "coursesFinished": 10
+  },
+  {
+    "id": "e44bce94-ab31-485b-a7f4-a639193c335b",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "nesto.email.com",
+    "isCurrentlyTeaching": true,
+    "timeEmployed": "6 months",
+    "coursesFinished": 10
+  },
+  {
+    "id": "f8532b1c-a0e8-4fd3-88f5-cfa412e49bd7",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "nesto.email.com",
+    "isCurrentlyTeaching": true,
+    "timeEmployed": "6 months",
+    "coursesFinished": 10
+  },
+  {
+    "id": "103f2673-414c-481e-aeb5-dbc37b93ca81",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "nesto.email.com",
+    "isCurrentlyTeaching": true,
+    "timeEmployed": "6 months",
+    "coursesFinished": 10
+  }
+]
