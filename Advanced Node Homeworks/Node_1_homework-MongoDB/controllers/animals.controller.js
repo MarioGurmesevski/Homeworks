@@ -31,9 +31,10 @@ export default class zooKeeperController {
     }
     static async deleteAnimal(req, res) {
         try {
-            await animalModel.delete(req.params.id);
+            await animalModel.deleteAnimal(req.params.id);
             res.sendStatus(200);
         } catch (error) {
+            // console.log(error)
             res.status(500).send({ message: "Error while deleting zookeeper!" });
         }
     }

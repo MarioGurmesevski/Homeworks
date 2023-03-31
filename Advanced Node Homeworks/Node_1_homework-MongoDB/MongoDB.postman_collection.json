@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "ffd37644-fd60-485a-b32d-a38c0fe3e1fc",
+		"name": "MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26374680"
+	},
+	"item": [
+		{
+			"name": "zookeepers",
+			"item": [
+				{
+					"name": "Getting all zookeepers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/zookeepers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zookeepers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adding a new zookeeper",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Test\",\r\n    \"age\":1,\r\n    \"location\":\"Skopje\",\r\n    \"isActive\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/zookeepers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zookeepers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editing existing zookeeper",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"testOne\",\r\n    \"age\":2,\r\n    \"location\":\"Bitola\",\r\n    \"isActive\":true\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/zookeepers/64273d60091b3db98b8bf456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zookeepers",
+								"64273d60091b3db98b8bf456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a zookeeper",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/zookeepers/64273d60091b3db98b8bf456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"zookeepers",
+								"64273d60091b3db98b8bf456"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "animals",
+			"item": [
+				{
+					"name": "Getting all animals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/animal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adding a new animal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Whitey\",\r\n\"type\": \"Chicken\",\r\n\"age\": 3,\r\n\"location\": \"Skopje\",\r\n\"gender\": \"F\",\r\n\"characteristics\": {\r\n  \"food\": [\"breadcrums\", \"random\", \"random\", \"cucumber\"],\r\n  \"colour\": \"white\",\r\n  \"isDangerous\": false,\r\n  \"weight\": 4,\r\n  \"enclosure\":\"henhouse\"\r\n}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/animal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editing existing animal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Whitey\",\r\n\"type\": \"Chicken\",\r\n\"age\": 3,\r\n\"location\": \"Bitola\",\r\n\"gender\": \"F\",\r\n\"characteristics\": {\r\n  \"food\": [\"breadcrums\", \"random\", \"random\", \"cucumber\"],\r\n  \"colour\": \"white\",\r\n  \"isDangerous\": false,\r\n  \"weight\": 4,\r\n  \"enclosure\":\"henhouse\"\r\n}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/animal/64274dcb1ecfe9e5fda8e76c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animal",
+								"64274dcb1ecfe9e5fda8e76c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a animal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/animal/64274d504d9bb0973183f6ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"animal",
+								"64274d504d9bb0973183f6ce"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -34,6 +34,7 @@ export default class zooKeeperController {
             await zooKeeperModel.deletezooKeeper(req.params.id);
             res.sendStatus(200);
         } catch (error) {
+            // console.log(error);
             res.status(500).send({ message: "Error while deleting zookeeper!" });
         }
     }
