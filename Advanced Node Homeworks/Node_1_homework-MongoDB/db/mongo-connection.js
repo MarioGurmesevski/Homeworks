@@ -1,6 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
-const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}.${process.env.MONGO_SERVER}.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://MarioG:4AAE4A2Y79kngTVU@cluster0.qdmzadt.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -13,9 +13,11 @@ let db;
 export const connectToDatabase = async () => {
     console.log("Connecting to MongoDB...");
 
-    db = await client.db(process.env.MONGO_DB_NAME);
+    db = await client.db("zoo");
 
     console.log("Connected to MongoDB!");
 };
 
 export const getDb = () => db;
+
+// const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}.${process.env.MONGO_SERVER}.mongodb.net/?retryWrites=true&w=majority`;
