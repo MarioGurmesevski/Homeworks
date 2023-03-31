@@ -12,14 +12,14 @@ export default class zooKeeperModel {
         const createdzooKeeper = await collection.insertOne(zooKeeper);
         return { id: createdzooKeeper.insertedId, ...zooKeeper };
     }
-    static async updatezooKeeper(productId, body) {
+    static async updatezooKeeper(zooKeeperId, body) {
         const collection = await getDb().collection("zookeepers");
-        const result = await collection.updateOne({ _id: new ObjectId(productId) }, { $set: body });
+        const result = await collection.updateOne({ _id: new ObjectId(zooKeeperId) }, { $set: body });
         return result;
     }
-    static async deletezooKeeper(productId) {
+    static async deletezooKeeper(zooKeeperId) {
         const collection = await getDb().collection("zookeepers");
-        const deleteresponse = await collection.deleteOne({ _id: new ObjectId(productId) });
+        const deleteresponse = await collection.deleteOne({ _id: new ObjectId(zooKeeperId) });
         console.log(deleteresponse);
     }
 }
