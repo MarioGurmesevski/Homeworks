@@ -6,7 +6,7 @@ export default class zooKeeperController {
             const zooKeepers = await zooKeeperModel.getAllzooKeepersModel();
             res.status(200).send(zooKeepers);
         } catch (error) {
-            // console.log(error);
+            console.log(error);
             res.status(500).send({ message: "Something went wrong" });
         }
     }
@@ -15,7 +15,7 @@ export default class zooKeeperController {
             const zooKeeper = await zooKeeperModel.addzooKeeper(req.body);
             res.status(200).send(zooKeeper);
         } catch (error) {
-            // console.log(error);
+            console.log(error);
             res.status(500).send({ message: "Something went wrong" });
         }
     }
@@ -34,7 +34,7 @@ export default class zooKeeperController {
             await zooKeeperModel.deletezooKeeper(req.params.id);
             res.sendStatus(200);
         } catch (error) {
-            // console.log(error);
+            console.log(error);
             res.status(500).send({ message: "Error while deleting zookeeper!" });
         }
     }
