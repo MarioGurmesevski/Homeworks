@@ -5,6 +5,6 @@ import zookeeperRouter from "./routes/zookeepers.routes.js"
 const router = express.Router();
 
 router.use("/zookeepers", zookeeperRouter);
-router.use("/animal", animalRouter)
+router.use("/animals", animalRouter)
 
 export default router;

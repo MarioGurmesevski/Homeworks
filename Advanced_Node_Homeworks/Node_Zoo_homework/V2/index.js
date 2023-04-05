@@ -16,7 +16,6 @@ app.use('/api', router)
 app.listen(process.env.PORT, process.env.HOST, async (err) => {
     if (err) console.log(err, 'Error while starting server');
 
-    // Connect Mongo DB
     await mongoose.connect(MONGO_URI)
 
     console.log(`Server started listening on http://${process.env.HOST}:${process.env.PORT}`)
