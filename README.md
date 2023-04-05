@@ -11,4 +11,6 @@ These are my Node JS homework
 
 - Advanced Node Homeworks
 
-  - [First Advanced Node Homework](/Advanced_Node_Homeworks/Node_1_homework-MongoDB/)
+  - [First Advanced Node Homework](/Advanced_Node_Homeworks/Node_Zoo_homework/)
+    - [Version 1](/Advanced_Node_Homeworks/Node_Zoo_homework/V1/)
+    - [Version 2](/Advanced_Node_Homeworks/Node_Zoo_homework/V2/)
