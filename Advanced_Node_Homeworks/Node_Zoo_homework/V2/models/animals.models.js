@@ -1,25 +1,63 @@
-import { getDb } from "../db/mongo-connection.js"
-import { ObjectId } from "mongodb";
+import { Schema, model } from 'mongoose';
 
-export default class animalModel {
-    static async getAllanimalsModel() {
-        const collection = await getDb().collection("animals");
-        const animals = await collection.find().toArray();
-        return animals;
+const animalSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        minlength: 2
+    },
+    age: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+    location: {
+        type: String,
+        required: true
+    },
+    gender: {
+        type: String,
+        required: true,
+        enum: ['M', 'F']
+    },
+    characteristics: {
+        food: {
+            type: Array
+        },
+        colour: {
+            type: String
+        },
+        isDangerous: {
+            type: Boolean,
+            default: false
+        },
+        weight: {
+            type: Number,
+            min: 0
+        },
+        enclosure: {
+            type: String,
+            required: true
+        }
     }
-    static async addAnimal(animal) {
-        const collection = await getDb().collection("animals");
-        const createdAnimal = await collection.insertOne(animal);
-        return { id: createdAnimal.insertedId, ...animal };
-    }
-    static async updateAnimal(animalId, body) {
-        const collection = await getDb().collection("animals");
-        const result = await collection.updateOne({ _id: new ObjectId(animalId) }, { $set: body });
-        return result;
-    }
-    static async deleteAnimal(animalId) {
-        const collection = await getDb().collection("animals");
-        const deleteresponse = await collection.deleteOne({ _id: new ObjectId(animalId) });
-        console.log(deleteresponse);
-    }
-}
+});
+
+
+const Animal = model('Animal', animalSchema);
+
+
+export default Animal;
+
+
+
+// "name": "Blacky",
+// "type": "Bear",
+// "age": 3,
+// "location": "Belgrade",
+// "gender": "M",
+// "characteristics": {
+//   "food": ["honey", "apple", "watermelon", "cucumber"],
+//   "colour": "black",
+//   "isDangerous": true,
+//   "weight": 250,
+//   "enclosure": "mountain"
