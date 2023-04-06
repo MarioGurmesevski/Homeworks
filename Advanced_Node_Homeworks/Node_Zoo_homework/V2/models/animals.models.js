@@ -39,7 +39,6 @@ const animalSchema = new Schema({
       type: String,
       required: true,
     },
-    required: true,
   },
 });
 
