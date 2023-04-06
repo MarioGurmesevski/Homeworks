@@ -22,7 +22,7 @@ const animalSchema = new Schema({
   },
   characteristics: {
     food: {
-      type: Array,
+      type: [String],
     },
     colour: {
       type: String,
