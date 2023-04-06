@@ -1,54 +1,51 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
 const animalSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 2
+  name: {
+    type: String,
+    required: true,
+    minlength: 2,
+  },
+  age: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+    enum: ["M", "F"],
+  },
+  characteristics: {
+    food: {
+      type: Array,
     },
-    age: {
-        type: Number,
-        required: true,
-        min: 0
+    colour: {
+      type: String,
     },
-    location: {
-        type: String,
-        required: true
+    isDangerous: {
+      type: Boolean,
+      default: false,
     },
-    gender: {
-        type: String,
-        required: true,
-        enum: ['M', 'F']
+    weight: {
+      type: Number,
+      min: 0,
     },
-    characteristics: {
-        food: {
-            type: Array
-        },
-        colour: {
-            type: String
-        },
-        isDangerous: {
-            type: Boolean,
-            default: false
-        },
-        weight: {
-            type: Number,
-            min: 0
-        },
-        enclosure: {
-            type: String,
-            required: true
-        }
-    }
+    enclosure: {
+      type: String,
+      required: true,
+    },
+    required: true,
+  },
 });
 
-
-const Animal = model('Animal', animalSchema);
-
+const Animal = model("Animal", animalSchema);
 
 export default Animal;
-
-
 
 // "name": "Blacky",
 // "type": "Bear",
