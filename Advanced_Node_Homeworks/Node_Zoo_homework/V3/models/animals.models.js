@@ -55,15 +55,3 @@ const animalSchema = new Schema({
 const Animal = model("Animal", animalSchema);
 
 export default Animal;
-
-// "name": "Blacky",
-// "type": "Bear",
-// "age": 3,
-// "location": "Belgrade",
-// "gender": "M",
-// "characteristics": {
-//   "food": ["honey", "apple", "watermelon", "cucumber"],
-//   "colour": "black",
-//   "isDangerous": true,
-//   "weight": 250,
-//   "enclosure": "mountain"
