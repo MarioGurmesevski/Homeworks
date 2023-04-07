@@ -1,5 +1,27 @@
 import { Schema, model } from "mongoose";
 
+const characteristics = new Schema({
+  _id: false,
+  food: {
+    type: [String],
+  },
+  colour: {
+    type: String,
+  },
+  isDangerous: {
+    type: Boolean,
+    default: false,
+  },
+  weight: {
+    type: Number,
+    min: 0,
+  },
+  enclosure: {
+    type: String,
+    required: true,
+  },
+})
+
 const animalSchema = new Schema({
   name: {
     type: String,
@@ -20,29 +42,13 @@ const animalSchema = new Schema({
     required: true,
     enum: ["M", "F"],
   },
-  characteristics: {
-    food: {
-      type: [String],
-    },
-    colour: {
-      type: String,
-    },
-    isDangerous: {
-      type: Boolean,
-      default: false,
-    },
-    weight: {
-      type: Number,
-      min: 0,
-    },
-    enclosure: {
-      type: String,
-      required: true,
-    },
-  },
   zookeepers: {
     type: Schema.Types.ObjectId,
     ref: "Zookeeper"
+  },
+  characteristics: {
+    type: characteristics,
+    required: true
   }
 });
 

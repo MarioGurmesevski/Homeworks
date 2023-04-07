@@ -1,4 +1,5 @@
 import Animal from "../models/animals.models.js";
+import Zookeeper from "../models/zookeepers.models.js"
 
 export default class AnimalService {
     static async getAllAnimals() {
@@ -8,7 +9,6 @@ export default class AnimalService {
     }
     static async getAnimalById(animalId) {
         const animal = await Animal.findById(animalId).populate("zookeepers", "-animals")
-
         return animal
     }
 
