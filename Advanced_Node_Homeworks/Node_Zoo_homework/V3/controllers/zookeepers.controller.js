@@ -2,8 +2,8 @@ import ZookeeperService from "../services/zookeepers.service.js";
 
 export default class animalController {
     static async getAllzooKeepers(req, res) {
-        const id = req.params.id;
         try {
+            const id = req.params.id;
             if (id) {
                 const zooKeeper = await ZookeeperService.getZookeepersbyId(id)
                 res.status(200).send(zooKeeper);

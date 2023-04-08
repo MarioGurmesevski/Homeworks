@@ -45,7 +45,7 @@ export default class ZookeeperService {
     static async updateAnimals(zooKeeperId, animalIds) {
         const zooKeeper = await Zookeeper.findById(zooKeeperId)
 
-        if (!zooKeeper) throw new Error(`zooKeeper with id:${zooKeeperId} doesn't exist`)
+        if (!zooKeeper) throw new Error(`Zookeeper with id:${zooKeeperId} doesn't exist`)
 
         zooKeeper.animals = animalIds
 

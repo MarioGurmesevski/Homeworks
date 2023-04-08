@@ -1,5 +1,4 @@
 import Animal from "../models/animals.models.js";
-import Zookeeper from "../models/zookeepers.models.js"
 
 export default class AnimalService {
     static async getAllAnimals() {
