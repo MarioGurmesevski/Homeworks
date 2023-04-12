@@ -1,3 +1,4 @@
+import Animal from "../models/animals.models.js";
 import Zookeeper from "../models/zookeepers.models.js";
 import AnimalService from "./animals.service.js";
 
@@ -13,7 +14,11 @@ export default class ZookeeperService {
 
         return zooKeeper
     }
+    // static async getZooKeeperByLocation(location) {
+    //     const zooKeeper = await Zookeeper.findOne({ location: location })
 
+    //     return zooKeeper
+    // }
     static async addNewZookeeper(zookeeperData) {
         const zooKeeper = new Zookeeper(zookeeperData);
         const response = await zooKeeper.save()
@@ -50,7 +55,7 @@ export default class ZookeeperService {
         zooKeeper.animals = animalIds
 
         for (const animalId of animalIds) {
-            await AnimalService.updateAnimal(animalId, { zooKeeper: zooKeeperId })
+            await AnimalService.updateAnimal(animalId, { zookeepers: zooKeeperId })
         }
         await zooKeeper.save()
 

@@ -17,6 +17,15 @@ export default class animalController {
             res.status(500).send(error);
         }
     }
+    // static async getZooKeeperByLocation(req, res) {
+    //     try {
+    //         const zooKeeper = await ZookeeperService.getZooKeeperByLocation(req.query.location)
+
+    //         res.status(200).send(zooKeeper)
+    //     } catch (error) {
+    //         res.status(500).send(error);
+    //     }
+    // }
     static async addzooKeeper(req, res) {
         try {
             const zooKeeper = await ZookeeperService.addNewZookeeper(req.body);

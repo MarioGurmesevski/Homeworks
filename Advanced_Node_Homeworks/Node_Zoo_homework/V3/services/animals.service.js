@@ -10,7 +10,10 @@ export default class AnimalService {
         const animal = await Animal.findById(animalId).populate("zookeepers", "-animals")
         return animal
     }
-
+    // static async getAnimalsByLocation(location) {
+    //     const animals = await Animal.findOne({ location: location });
+    //     return animals;
+    // }
     static async addNewAnimal(animalData) {
         const animal = new Animal(animalData);
         const response = await animal.save()

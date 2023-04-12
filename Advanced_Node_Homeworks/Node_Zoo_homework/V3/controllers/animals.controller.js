@@ -16,6 +16,14 @@ export default class animalController {
             res.status(500).send(error);
         }
     }
+    // static async getAnimalsByLocation(req, res) {
+    //     try {
+    //         const animals = await AnimalService.getAnimalsByLocation(req.query.location)
+    //         res.status(200).send(animals)
+    //     } catch (error) {
+    //         res.status(500).send(error);
+    //     }
+    // }
     static async addAnimal(req, res) {
         try {
             const animal = await AnimalService.addNewAnimal(req.body);

@@ -4,6 +4,7 @@ import zooKeeperController from "../controllers/zookeepers.controller.js";
 const router = Router();
 
 router.get("/:id?", zooKeeperController.getAllzooKeepers);
+// router.get("/location", zooKeeperController.getZooKeeperByLocation)
 router.post("/", zooKeeperController.addzooKeeper);
 router.put("/:id", zooKeeperController.updatezooKeeper);
 router.delete("/:id", zooKeeperController.deletezooKeeper)
