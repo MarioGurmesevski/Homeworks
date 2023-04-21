@@ -15,3 +15,4 @@ These are my Node JS homework
     - [Version 1](/Advanced_Node_Homeworks/Node_Zoo_homework/V1/)
     - [Version 2](/Advanced_Node_Homeworks/Node_Zoo_homework/V2/)
     - [Version 3](/Advanced_Node_Homeworks/Node_Zoo_homework/V3/)
+    - [Version 4](/Advanced_Node_Homeworks/Node_Zoo_homework/V4/)
