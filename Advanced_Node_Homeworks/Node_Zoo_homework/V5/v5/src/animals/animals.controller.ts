@@ -12,6 +12,7 @@ import {
   Put,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { AnimalsService } from './animals.service';
 import {
@@ -20,6 +21,7 @@ import {
   AnimalUpdateDto,
 } from './dtos/animal.dto';
 import { ApiCreatedResponse, ApiResponse } from '@nestjs/swagger';
+import { animalQueryDto } from './dtos/animal-query.dto';
 
 @Controller('animals')
 export class AnimalsController {
@@ -34,14 +36,16 @@ export class AnimalsController {
   createAnimal(@Body() body: AnimalCreateDto): Promise<AnimalResponseDto> {
     return this.animalService.createAnimal(body);
   }
+
   @ApiResponse({
     status: 200,
     description: 'The  found animals',
   })
   @Get()
-  getAnimals(): Promise<AnimalResponseDto[]> {
-    return this.animalService.getAnimals();
+  getAnimals(@Query() query: animalQueryDto): Promise<AnimalResponseDto[]> {
+    return this.animalService.getAnimals(query);
   }
+
   @Put(':id')
   @UsePipes(ValidationPipe)
   @ApiResponse({
@@ -54,6 +58,7 @@ export class AnimalsController {
   ): Promise<AnimalResponseDto> {
     return this.animalService.updateAnimal(id, updateData);
   }
+
   @Delete(':id/delete')
   @UsePipes(ValidationPipe)
   @ApiResponse({
