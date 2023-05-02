@@ -12,6 +12,7 @@ import {
   Put,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 
 import { ApiCreatedResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -21,6 +22,7 @@ import {
   ZookeeperResponseDto,
   ZookeeperUpdateDto,
 } from './dtos/zookeeper.dto';
+import { zookeeperQueryDto } from './dtos/zookeeper-query.dto';
 
 @ApiTags('Zookeepers')
 @Controller('zookeepers')
@@ -43,8 +45,10 @@ export class ZookeepersController {
     description: 'The  found zookeeper',
   })
   @Get()
-  getZookeeper(): Promise<ZookeeperResponseDto[]> {
-    return this.zookeeperService.getZookeepers();
+  getZookeeper(
+    @Query() query: zookeeperQueryDto,
+  ): Promise<ZookeeperResponseDto[]> {
+    return this.zookeeperService.getZookeepers(query);
   }
   @Put(':id')
   @UsePipes(ValidationPipe)

@@ -1,5 +1,6 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import {
+  IsBoolean,
   IsEnum,
   IsNumber,
   IsOptional,
@@ -11,12 +12,7 @@ function isAgeValid(age: number): boolean {
   return age >= 5;
 }
 
-enum Gender {
-  M = 'Male',
-  F = 'Female',
-}
-
-export class animalQueryDto {
+export class zookeeperQueryDto {
   @IsString()
   @IsOptional()
   @ApiPropertyOptional({
@@ -35,8 +31,12 @@ export class animalQueryDto {
   })
   age?: number;
 
-  @IsEnum(Gender)
+  @IsBoolean()
   @IsOptional()
-  @ApiPropertyOptional({})
-  gender?: Gender;
+  @ApiPropertyOptional({
+    type: Boolean,
+    example: false,
+    default: false,
+  })
+  isActive?: boolean;
 }

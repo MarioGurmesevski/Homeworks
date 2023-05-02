@@ -22,14 +22,20 @@ export class AnimalsService {
   }
 
   getAnimals(query: animalQueryDto): Promise<AnimalResponseDto[]> {
-    const locationQuery = query?.location
-      ? { location: Like(`%${query.location}%`) }
-      : {};
+    let whereQuery = {};
 
-    const ageQuery = query?.age ? { age: Like(`%${query.age}%`) } : {};
+    if (query?.location) {
+      whereQuery = { ...whereQuery, location: Like(`%${query.location}%`) };
+    }
+    if (query?.age) {
+      whereQuery = { ...whereQuery, age: query.age };
+    }
+    if (query?.gender) {
+      whereQuery = { ...whereQuery, gender: query.gender };
+    }
 
     return this.animalRepository.find({
-      where: { ...locationQuery, ...ageQuery },
+      where: whereQuery,
       relations: ['zookeeper'],
     });
   }

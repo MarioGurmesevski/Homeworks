@@ -2,7 +2,7 @@
 https://docs.nestjs.com/providers#services
 */
 
-import { Repository, DeleteResult } from 'typeorm';
+import { Repository, DeleteResult, Like } from 'typeorm';
 import { Inject, Injectable } from '@nestjs/common';
 import { Zookeeper } from './zookeeper.entity';
 import {
@@ -10,6 +10,7 @@ import {
   ZookeeperResponseDto,
   ZookeeperUpdateDto,
 } from './dtos/zookeeper.dto';
+import { zookeeperQueryDto } from './dtos/zookeeper-query.dto';
 
 @Injectable()
 export class ZookeepersService {
@@ -20,8 +21,23 @@ export class ZookeepersService {
   createZookeeper(body: ZookeeperCreateDto): Promise<ZookeeperResponseDto> {
     return this.zookeeperRepository.save(body);
   }
-  getZookeepers(): Promise<ZookeeperResponseDto[]> {
-    return this.zookeeperRepository.find({ relations: ['animals'] });
+  getZookeepers(query: zookeeperQueryDto): Promise<ZookeeperResponseDto[]> {
+    let whereQuery = {};
+
+    if (query?.location) {
+      whereQuery = { ...whereQuery, location: Like(`%${query.location}%`) };
+    }
+    if (query?.age) {
+      whereQuery = { ...whereQuery, age: query.age };
+    }
+    if (query?.isActive) {
+      whereQuery = { ...whereQuery, gender: query.isActive };
+    }
+
+    return this.zookeeperRepository.find({
+      where: whereQuery,
+      relations: ['animals'],
+    });
   }
   async updateZookeeper(
     id: string,
