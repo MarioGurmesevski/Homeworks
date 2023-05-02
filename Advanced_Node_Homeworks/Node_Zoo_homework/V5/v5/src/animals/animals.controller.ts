@@ -20,9 +20,10 @@ import {
   AnimalResponseDto,
   AnimalUpdateDto,
 } from './dtos/animal.dto';
-import { ApiCreatedResponse, ApiResponse } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { animalQueryDto } from './dtos/animal-query.dto';
 
+@ApiTags('Animals')
 @Controller('animals')
 export class AnimalsController {
   constructor(private readonly animalService: AnimalsService) {}

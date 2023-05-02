@@ -14,7 +14,7 @@ import {
   Delete,
 } from '@nestjs/common';
 
-import { ApiCreatedResponse, ApiResponse } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ZookeepersService } from './zookeepers.service';
 import {
   ZookeeperCreateDto,
@@ -22,6 +22,7 @@ import {
   ZookeeperUpdateDto,
 } from './dtos/zookeeper.dto';
 
+@ApiTags('Zookeepers')
 @Controller('zookeepers')
 export class ZookeepersController {
   constructor(private readonly zookeeperService: ZookeepersService) {}
