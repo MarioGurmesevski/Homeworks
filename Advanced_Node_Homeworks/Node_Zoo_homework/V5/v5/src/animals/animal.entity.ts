@@ -41,7 +41,7 @@ export class Animal {
   @Column({
     nullable: true,
   })
-  zookeeperID: string;
+  zookeeperId: string;
 
   @ManyToOne(() => Zookeeper, (zookeeper) => zookeeper.animals)
   zookeeper: Zookeeper;

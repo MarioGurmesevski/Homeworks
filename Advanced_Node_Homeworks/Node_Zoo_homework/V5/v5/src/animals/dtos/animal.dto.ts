@@ -93,9 +93,10 @@ export class AnimalCreateDto {
   @IsString()
   @ApiProperty({
     type: String,
+    required: false,
     example: 'aab8f88b-52ff-4339-9263-54e4427c42bc',
   })
-  zookeeperID?: string;
+  zookeeperId?: string;
 
   @IsNotEmpty()
   @ValidateNested()
@@ -113,14 +114,14 @@ export class AnimalResponseDto extends AnimalCreateDto implements Animal {
 
 export class AnimalUpdateDto extends AnimalCreateDto {}
 
-export class PlayerAddToTeamDto {
+export class AnimalAddToZookeeperDto {
   @ApiProperty({
     type: String,
     required: true,
   })
   @IsUUID()
   @IsNotEmpty()
-  playerId: string;
+  zookeeperId: string;
 
   @ApiProperty({
     type: String,
@@ -128,5 +129,5 @@ export class PlayerAddToTeamDto {
   })
   @IsUUID()
   @IsNotEmpty()
-  teamId: string;
+  animalId: string;
 }

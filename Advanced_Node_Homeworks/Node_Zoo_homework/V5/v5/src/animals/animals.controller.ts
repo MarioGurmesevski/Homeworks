@@ -17,6 +17,7 @@ import {
 } from '@nestjs/common';
 import { AnimalsService } from './animals.service';
 import {
+  AnimalAddToZookeeperDto,
   AnimalCreateDto,
   AnimalResponseDto,
   AnimalUpdateDto,
@@ -71,7 +72,12 @@ export class AnimalsController {
     return this.animalService.deleteAnimal(id);
   }
 
-  @Patch()
+  @Patch(':animalId/zookeeper/:zookeeperId')
   @UsePipes(ValidationPipe)
-  addAnimalToZookeeper(@Param() params:)
+  addAnimalToZookeeper(@Param() params: AnimalAddToZookeeperDto) {
+    return this.animalService.addAnimalToZookeeper(
+      params.animalId,
+      params.zookeeperId,
+    );
+  }
 }

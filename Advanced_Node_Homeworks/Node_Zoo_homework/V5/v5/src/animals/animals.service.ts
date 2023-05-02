@@ -3,7 +3,7 @@ https://docs.nestjs.com/providers#services
 */
 
 import { Repository, DeleteResult, Like } from 'typeorm';
-import { Inject, Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { Animal } from './animal.entity';
 import {
   AnimalCreateDto,
@@ -40,6 +40,13 @@ export class AnimalsService {
     });
   }
 
+  getAnimalById(id: string): Promise<AnimalResponseDto> {
+    return this.animalRepository.findOne({
+      where: { id }, // where: { id: id }
+      relations: ['zookeeper'],
+    });
+  }
+
   async updateAnimal(
     id: string,
     updateData: AnimalUpdateDto,
@@ -48,5 +55,24 @@ export class AnimalsService {
   }
   async deleteAnimal(id: string): Promise<DeleteResult> {
     return await this.animalRepository.delete(id);
+  }
+
+  async addAnimalToZookeeper(animalId: string, zookeeperId: string) {
+    const animal = await this.getAnimalById(animalId);
+
+    const alreadyAddToZookeeper = animal?.zookeeperId === zookeeperId;
+
+    if (alreadyAddToZookeeper) {
+      throw new BadRequestException(
+        `Animal with ID: ${animalId} is already add to Zookeeper.`,
+      );
+    }
+
+    await this.animalRepository.save({
+      id: animalId,
+      zookeeperId,
+    });
+
+    return this.getAnimalById(animalId);
   }
 }

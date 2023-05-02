@@ -17,6 +17,6 @@ export interface Animal {
   age: number;
   location: string;
   gender: Gender;
-  zookeeperID?: string;
+  zookeeperId?: string;
   characteristics: Characteristics;
 }
