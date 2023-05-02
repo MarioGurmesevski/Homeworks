@@ -13,6 +13,7 @@ import {
   Param,
   Delete,
   Query,
+  Patch,
 } from '@nestjs/common';
 import { AnimalsService } from './animals.service';
 import {
@@ -69,4 +70,8 @@ export class AnimalsController {
   deleteAnimal(@Param('id') id: string): Promise<any> {
     return this.animalService.deleteAnimal(id);
   }
+
+  @Patch()
+  @UsePipes(ValidationPipe)
+  addAnimalToZookeeper(@Param() params:)
 }

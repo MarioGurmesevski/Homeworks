@@ -112,3 +112,21 @@ export class AnimalResponseDto extends AnimalCreateDto implements Animal {
 }
 
 export class AnimalUpdateDto extends AnimalCreateDto {}
+
+export class PlayerAddToTeamDto {
+  @ApiProperty({
+    type: String,
+    required: true,
+  })
+  @IsUUID()
+  @IsNotEmpty()
+  playerId: string;
+
+  @ApiProperty({
+    type: String,
+    required: true,
+  })
+  @IsUUID()
+  @IsNotEmpty()
+  teamId: string;
+}
