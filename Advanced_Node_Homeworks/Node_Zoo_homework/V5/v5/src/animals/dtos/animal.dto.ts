@@ -70,7 +70,7 @@ export class AnimalCreateDto {
   @IsNumber()
   @ApiProperty({
     type: Number,
-    example: 4,
+    example: 6,
   })
   age: number;
 
@@ -78,7 +78,7 @@ export class AnimalCreateDto {
   @IsString()
   @ApiProperty({
     type: String,
-    example: 'Macedonia',
+    example: 'Skopje',
   })
   location: string;
 
@@ -91,11 +91,11 @@ export class AnimalCreateDto {
 
   @IsOptional()
   @IsString()
-  @ApiProperty({
-    type: String,
-    required: false,
-    example: 'aab8f88b-52ff-4339-9263-54e4427c42bc',
-  })
+  // @ApiProperty({
+  //   type: String,
+  //   required: false,
+  //   example: 'aab8f88b-52ff-4339-9263-54e4427c42bc',
+  // })
   zookeeperId?: string;
 
   @IsNotEmpty()

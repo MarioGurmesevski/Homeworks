@@ -26,8 +26,7 @@ export class zookeeperQueryDto {
   @Validate(isAgeValid)
   @ApiPropertyOptional({
     type: Number,
-    example: 6,
-    default: 6,
+    example: 30,
   })
   age?: number;
 
@@ -35,8 +34,7 @@ export class zookeeperQueryDto {
   @IsOptional()
   @ApiPropertyOptional({
     type: Boolean,
-    example: false,
-    default: false,
+    example: true,
   })
   isActive?: boolean;
 }

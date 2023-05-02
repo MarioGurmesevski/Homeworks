@@ -18,9 +18,11 @@ export class ZookeepersService {
     @Inject('ZOOKEEPER_REPOSITORY')
     private zookeeperRepository: Repository<Zookeeper>,
   ) {}
+
   createZookeeper(body: ZookeeperCreateDto): Promise<ZookeeperResponseDto> {
     return this.zookeeperRepository.save(body);
   }
+
   getZookeepers(query: zookeeperQueryDto): Promise<ZookeeperResponseDto[]> {
     let whereQuery = {};
 
@@ -31,7 +33,7 @@ export class ZookeepersService {
       whereQuery = { ...whereQuery, age: query.age };
     }
     if (query?.isActive) {
-      whereQuery = { ...whereQuery, gender: query.isActive };
+      whereQuery = { ...whereQuery, isActive: query.isActive };
     }
 
     return this.zookeeperRepository.find({
@@ -39,12 +41,21 @@ export class ZookeepersService {
       relations: ['animals'],
     });
   }
+
+  getZookeeperById(id: string): Promise<ZookeeperResponseDto> {
+    return this.zookeeperRepository.findOne({
+      where: { id },
+      relations: ['animals'],
+    });
+  }
+
   async updateZookeeper(
     id: string,
     updateData: ZookeeperUpdateDto,
   ): Promise<ZookeeperResponseDto> {
     return this.zookeeperRepository.save({ ...updateData, id: id });
   }
+
   async deleteZookeeper(id: string): Promise<DeleteResult> {
     return await this.zookeeperRepository.delete(id);
   }

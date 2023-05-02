@@ -40,6 +40,7 @@ export class ZookeepersController {
   ): Promise<ZookeeperResponseDto> {
     return this.zookeeperService.createZookeeper(body);
   }
+
   @ApiResponse({
     status: 200,
     description: 'The  found zookeeper',
@@ -50,7 +51,13 @@ export class ZookeepersController {
   ): Promise<ZookeeperResponseDto[]> {
     return this.zookeeperService.getZookeepers(query);
   }
-  @Put(':id')
+
+  @Get('id/:id')
+  getAnimalsById(@Param('id') id: string): Promise<ZookeeperResponseDto> {
+    return this.zookeeperService.getZookeeperById(id);
+  }
+
+  @Put('update/:id')
   @UsePipes(ValidationPipe)
   @ApiResponse({
     status: 200,
@@ -62,7 +69,8 @@ export class ZookeepersController {
   ): Promise<ZookeeperResponseDto> {
     return this.zookeeperService.updateZookeeper(id, updateData);
   }
-  @Delete(':id/delete')
+
+  @Delete('delete/:id')
   @UsePipes(ValidationPipe)
   @ApiResponse({
     status: 200,

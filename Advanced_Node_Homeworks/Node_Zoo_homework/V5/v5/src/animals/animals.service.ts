@@ -42,7 +42,7 @@ export class AnimalsService {
 
   getAnimalById(id: string): Promise<AnimalResponseDto> {
     return this.animalRepository.findOne({
-      where: { id }, // where: { id: id }
+      where: { id },
       relations: ['zookeeper'],
     });
   }
@@ -53,6 +53,7 @@ export class AnimalsService {
   ): Promise<AnimalResponseDto> {
     return this.animalRepository.save({ ...updateData, id: id });
   }
+
   async deleteAnimal(id: string): Promise<DeleteResult> {
     return await this.animalRepository.delete(id);
   }

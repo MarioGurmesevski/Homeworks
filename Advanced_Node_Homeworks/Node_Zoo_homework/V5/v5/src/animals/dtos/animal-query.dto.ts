@@ -31,12 +31,14 @@ export class animalQueryDto {
   @ApiPropertyOptional({
     type: Number,
     example: 6,
-    default: 6,
   })
   age?: number;
 
   @IsEnum(Gender)
   @IsOptional()
-  @ApiPropertyOptional({})
+  @ApiPropertyOptional({
+    enum: Gender,
+    example: Gender.M,
+  })
   gender?: Gender;
 }

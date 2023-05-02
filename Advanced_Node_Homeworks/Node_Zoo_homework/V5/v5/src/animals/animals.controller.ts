@@ -49,7 +49,12 @@ export class AnimalsController {
     return this.animalService.getAnimals(query);
   }
 
-  @Put(':id')
+  @Get('id/:id')
+  getAnimalsById(@Param('id') id: string): Promise<AnimalResponseDto> {
+    return this.animalService.getAnimalById(id);
+  }
+
+  @Put('update/:id')
   @UsePipes(ValidationPipe)
   @ApiResponse({
     status: 200,
@@ -62,7 +67,7 @@ export class AnimalsController {
     return this.animalService.updateAnimal(id, updateData);
   }
 
-  @Delete(':id/delete')
+  @Delete('delete/:id')
   @UsePipes(ValidationPipe)
   @ApiResponse({
     status: 200,

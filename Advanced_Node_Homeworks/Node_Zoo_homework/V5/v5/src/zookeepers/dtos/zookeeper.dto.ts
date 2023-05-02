@@ -41,7 +41,7 @@ export class ZookeeperCreateDto {
   @IsString()
   @ApiProperty({
     type: String,
-    example: 'Macedonia',
+    example: 'Skopje',
   })
   location: string;
 
