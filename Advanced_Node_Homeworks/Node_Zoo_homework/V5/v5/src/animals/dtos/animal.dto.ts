@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
+  IsArray,
   IsBoolean,
   IsNotEmpty,
   IsNumber,
@@ -15,8 +16,7 @@ enum Gender {
   F = 'Female',
 }
 
-export class CharacteristicsDto {
-  @IsNotEmpty()
+export class AnimalCharacteristicsDto {
   @IsString({ each: true })
   @ApiProperty({
     type: [String],
@@ -101,9 +101,9 @@ export class AnimalCreateDto {
   @IsNotEmpty()
   @ValidateNested()
   @ApiProperty({
-    type: CharacteristicsDto,
+    type: AnimalCharacteristicsDto,
   })
-  characteristics: CharacteristicsDto;
+  characteristics: AnimalCharacteristicsDto;
 }
 
 export class AnimalResponseDto extends AnimalCreateDto implements Animal {
