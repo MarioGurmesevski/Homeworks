@@ -7,10 +7,6 @@ import {
   Validate,
 } from 'class-validator';
 
-function isAgeValid(age: number): boolean {
-  return age >= 5;
-}
-
 enum Gender {
   M = 'Male',
   F = 'Female',
@@ -22,15 +18,19 @@ export class animalQueryDto {
   @ApiPropertyOptional({
     type: String,
     example: 'Skopje',
+    description: 'Search by the location of the animal',
   })
   location?: string;
 
   @IsNumber()
   @IsOptional()
-  @Validate(isAgeValid)
+  @Validate(() => (age: number): boolean => {
+    return;
+  })
   @ApiPropertyOptional({
     type: Number,
     example: 6,
+    description: 'Search by the age of the animal',
   })
   age?: number;
 
@@ -39,6 +39,7 @@ export class animalQueryDto {
   @ApiPropertyOptional({
     enum: Gender,
     example: Gender.M,
+    description: 'Search by the gender of the animal',
   })
   gender?: Gender;
 }

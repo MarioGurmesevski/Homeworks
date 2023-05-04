@@ -18,6 +18,7 @@ export class zookeeperQueryDto {
   @ApiPropertyOptional({
     type: String,
     example: 'Skopje',
+    description: 'Search by the location of the zookeeper',
   })
   location?: string;
 
@@ -27,6 +28,7 @@ export class zookeeperQueryDto {
   @ApiPropertyOptional({
     type: Number,
     example: 30,
+    description: 'Search by the age of the zookeeper',
   })
   age?: number;
 
@@ -35,6 +37,7 @@ export class zookeeperQueryDto {
   @ApiPropertyOptional({
     type: Boolean,
     example: true,
+    description: 'Search if the zookeeper is active',
   })
   isActive?: boolean;
 }
