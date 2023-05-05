@@ -12,6 +12,10 @@ enum Gender {
   F = 'Female',
 }
 
+// function isAgeValid(age: number) {
+//   return age >= 0 && age <= 100;
+// }
+
 export class animalQueryDto {
   @IsString()
   @IsOptional()
@@ -22,11 +26,9 @@ export class animalQueryDto {
   })
   location?: string;
 
+  // @Validate(isAgeValid)
   @IsNumber()
   @IsOptional()
-  @Validate(() => (age: number): boolean => {
-    return;
-  })
   @ApiPropertyOptional({
     type: Number,
     example: 6,

@@ -8,9 +8,9 @@ import {
   Validate,
 } from 'class-validator';
 
-function isAgeValid(age: number): boolean {
-  return age >= 5;
-}
+// function isAgeValid(age: number) {
+//   return age >= 0 && age <= 100;
+// }
 
 export class zookeeperQueryDto {
   @IsString()
@@ -22,9 +22,9 @@ export class zookeeperQueryDto {
   })
   location?: string;
 
+  // @Validate(isAgeValid)
   @IsNumber()
   @IsOptional()
-  @Validate(isAgeValid)
   @ApiPropertyOptional({
     type: Number,
     example: 30,
