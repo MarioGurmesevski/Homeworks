@@ -2,7 +2,7 @@
 https://docs.nestjs.com/providers#services
 */
 
-import { Repository, DeleteResult, Like } from 'typeorm';
+import { Repository, DeleteResult, ILike, MoreThanOrEqual } from 'typeorm';
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { Animal } from './animal.entity';
 import {
@@ -25,10 +25,10 @@ export class AnimalsService {
     let whereQuery = {};
 
     if (query?.location) {
-      whereQuery = { ...whereQuery, location: Like(`%${query.location}%`) };
+      whereQuery = { ...whereQuery, location: ILike(`%${query.location}%`) };
     }
     if (query?.age) {
-      whereQuery = { ...whereQuery, age: query.age };
+      whereQuery = { ...whereQuery, age: MoreThanOrEqual(query.age) };
     }
     if (query?.gender) {
       whereQuery = { ...whereQuery, gender: query.gender };
