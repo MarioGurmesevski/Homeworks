@@ -20,7 +20,7 @@ export class UserRolesParamsDto {
     description: 'Users new role',
     enum: RolesEnum,
     required: true,
-    default: RolesEnum.user, // just for documentation (swagger)
+    default: RolesEnum.user,
   })
-  role: RolesEnum = RolesEnum.user; // the actual value to be used
+  role: RolesEnum = RolesEnum.user;
 }
