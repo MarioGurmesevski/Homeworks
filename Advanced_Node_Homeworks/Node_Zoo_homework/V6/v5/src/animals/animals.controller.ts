@@ -37,28 +37,28 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 export class AnimalsController {
   constructor(private readonly animalService: AnimalsService) {}
 
-  @Roles(RolesEnum.admin, RolesEnum.editor)
+  @Roles(RolesEnum.admin)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   @UsePipes(ValidationPipe)
   createAnimal(@Body() body: AnimalCreateDto): Promise<AnimalResponseDto> {
     return this.animalService.createAnimal(body);
   }
-  @Roles(RolesEnum.admin, RolesEnum.editor, RolesEnum.user)
+  @Roles(RolesEnum.admin, RolesEnum.user)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   getAnimals(@Query() query: animalQueryDto): Promise<AnimalResponseDto[]> {
     return this.animalService.getAnimals(query);
   }
 
-  @Roles(RolesEnum.admin, RolesEnum.editor, RolesEnum.user)
+  @Roles(RolesEnum.admin, RolesEnum.user)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('id/:id')
   getAnimalsById(@Param('id') id: string): Promise<AnimalResponseDto> {
     return this.animalService.getAnimalById(id);
   }
 
-  @Roles(RolesEnum.admin, RolesEnum.editor)
+  @Roles(RolesEnum.admin)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Put('update/:id')
   @UsePipes(ValidationPipe)
@@ -77,7 +77,7 @@ export class AnimalsController {
     return this.animalService.deleteAnimal(id);
   }
 
-  @Roles(RolesEnum.admin, RolesEnum.editor)
+  @Roles(RolesEnum.admin)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':animalId/zookeeper/:zookeeperId')
   @UsePipes(ValidationPipe)

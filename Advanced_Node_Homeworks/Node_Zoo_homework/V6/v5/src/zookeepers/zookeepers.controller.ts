@@ -35,7 +35,7 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 export class ZookeepersController {
   constructor(private readonly zookeeperService: ZookeepersService) {}
 
-  @Roles(RolesEnum.admin, RolesEnum.editor)
+  @Roles(RolesEnum.admin)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   @UsePipes(ValidationPipe)
@@ -45,7 +45,7 @@ export class ZookeepersController {
     return this.zookeeperService.createZookeeper(body);
   }
 
-  @Roles(RolesEnum.admin, RolesEnum.editor, RolesEnum.user)
+  @Roles(RolesEnum.admin, RolesEnum.user)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   getZookeeper(
@@ -54,14 +54,14 @@ export class ZookeepersController {
     return this.zookeeperService.getZookeepers(query);
   }
 
-  @Roles(RolesEnum.admin, RolesEnum.editor, RolesEnum.user)
+  @Roles(RolesEnum.admin, RolesEnum.user)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('id/:id')
   getAnimalsById(@Param('id') id: string): Promise<ZookeeperResponseDto> {
     return this.zookeeperService.getZookeeperById(id);
   }
 
-  @Roles(RolesEnum.admin, RolesEnum.editor)
+  @Roles(RolesEnum.admin)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Put('update/:id')
   @UsePipes(ValidationPipe)
