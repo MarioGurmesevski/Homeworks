@@ -24,3 +24,4 @@
 - [Database Development & Design Homeworks](/Database_Development_and_Design_Homeworks/)
 
   - [First Database Homework](/Database_Development_and_Design_Homeworks/Homework_1/)
+  - [Second Database Homework](/Database_Development_and_Design_Homeworks/Homework_2/)
