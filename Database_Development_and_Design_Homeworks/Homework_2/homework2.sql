@@ -90,7 +90,7 @@ FROM Customer
 
 CREATE TABLE "Order"
 (
-	id serial PRIMARY KEY NOT NULL,
+	id serial primary key not null,
 	orderDate date CHECK(orderDate>='2010-01-01')
 )
 
@@ -98,7 +98,7 @@ CREATE TABLE "Order"
 
 CREATE TABLE Product
 (
-	id serial PRIMARY KEY NOT NULL,
+	id serial primary key not null,
 	cost integer,
 	price integer CHECK(price >=1.2 * cost)
 )
@@ -107,7 +107,7 @@ CREATE TABLE Product
 
 CREATE TABLE Product
 (
-	id serial PRIMARY KEY NOT NULL,
+	id serial primary key not null,
 	cost integer,
 	price integer CHECK(price >=1.2 * cost),
 	description varchar(500) UNIQUE
@@ -119,9 +119,9 @@ CREATE TABLE Product
 
 CREATE TABLE "Order"
 (
-	id serial PRIMARY KEY NOT NULL,
+	id serial primary key not null,
 	orderDate date CHECK(orderDate>='2010-01-01'),
-	product_id integer REFERENCES Product(id)
+	product_id integer references Product(id)
 )
 
 -- Part 6
@@ -132,12 +132,59 @@ CREATE TABLE "Order"
 
 -- List all Business Entities that has any order
 
-
+SELECT b.business_entity_name
+FROM businessentity b
+LEFT JOIN businessentity_order bo ON b.business_entity_id = bo.business_entity_id
+WHERE bo.business_entity_id IS NOT NULL;
 
 -- List all Business Entities without orders
 
+SELECT b.business_entity_name
+FROM businessentity b
+LEFT JOIN businessentity_order bo ON b.business_entity_id = bo.business_entity_id
+WHERE bo.business_entity_id IS NULL;
 
- 
+
+-- Selects
+
+SELECT * FROM "Order"
+SELECT * FROM businessentity
+SELECT * FROM customer
+SELECT * FROM employee
+SELECT * FROM orderdetails
+SELECT * FROM product
+
+-- Create Tables
+
+CREATE TABLE businessentity
+(
+	business_entity_id serial primary key,
+	business_entity_name varchar(50),
+	region varchar(50),
+	zipcode varchar(10),
+	size varchar(10)
+);
+
+CREATE TABLE "Order"
+(
+	order_id serial primary key,
+	orderDate date CHECK(orderDate>='2010-01-01')
+);
+
+CREATE TABLE businessentity_order (
+	order_id int,
+	business_entity_id int,
+	primary key (order_id, business_entity_id),
+	foreign key (order_id) references "Order" (order_id),
+	foreign key (business_entity_id) references businessentity (business_entity_id)
+);
+
+
+
+
+
+
+
 
 
 
