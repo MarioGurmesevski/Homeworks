@@ -34,3 +34,4 @@
 
   - [First React Homework](/React_JS_Homeworks/Homework_1_Music/)
     - [Version 1](/React_JS_Homeworks/Homework_1_Music/v1/)
+    - [Version 1](/React_JS_Homeworks/Homework_1_Music/v2/)
