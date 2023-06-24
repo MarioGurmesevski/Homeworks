@@ -1,4 +1,3 @@
-import React from "react";
 import Song from "./Song";
 
 export default function SongList({ songs, addToPlaylist }) {
