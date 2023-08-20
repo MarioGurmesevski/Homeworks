@@ -34,4 +34,11 @@
 
   - [First React Homework](/React_JS_Homeworks/Homework_1_Music/)
     - [Version 1](/React_JS_Homeworks/Homework_1_Music/v1/)
-    - [Version 1](/React_JS_Homeworks/Homework_1_Music/v2/)
+    - [Version 2](/React_JS_Homeworks/Homework_1_Music/v2/)
+
+## These are Angular homeworks
+
+- [Angular](/Angular_Homeworks/)
+
+  - [First Angular Homework](/Angular_Homeworks/hotel_homework/)
+    - [Version 1](/Angular_Homeworks/hotel_homework/v1/)
