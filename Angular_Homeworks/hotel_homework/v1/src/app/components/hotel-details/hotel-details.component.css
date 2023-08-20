@@ -1,0 +1,62 @@
+.container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.102);
+  margin: 20px;
+}
+
+.room-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.room-description {
+  margin: 0;
+  color: #666;
+}
+
+.room-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.102);
+}
+
+.room-price {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.room-people,
+.room-children {
+  color: #666;
+  margin: 5px 0;
+}
+
+.room-amenities {
+  margin: 5px 0;
+  color: #333;
+}
+
+.room-availability {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.back-button {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #aaa;
+}

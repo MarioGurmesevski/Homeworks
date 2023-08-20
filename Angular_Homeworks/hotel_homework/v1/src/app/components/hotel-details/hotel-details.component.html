@@ -1,16 +1,16 @@
-<div *ngIf="hotel; else notFound">
-  <div *ngFor="let room of hotel.rooms">
-    <h3>Name: {{ room.name }}</h3>
-    <p>Description: {{ room.description }}</p>
-    <img src="{{ room.image }}" alt="{{ room.id }}" />
-    <p>Price: {{ room.price }}$ per Day</p>
-    <p>Total People: {{ room.people }}</p>
-    <p>Total Children: {{ room.children }}</p>
-    <p>Amenities: {{ room.amenities }}</p>
-    <p appAvailabilityColor>
+<div *ngIf="hotel; else notFound" class="container">
+  <div *ngFor="let room of hotel.rooms" class="room-item">
+    <button class="back-button" (click)="goBack()">Go Back</button>
+    <h3 class="room-name">Name: {{ room.name }}</h3>
+    <p class="room-description">Description: {{ room.description }}</p>
+    <img class="room-image" src="{{ room.image }}" alt="{{ room.id }}" />
+    <p class="room-price">Price: {{ room.price }}$ per Day</p>
+    <p class="room-people">Total People: {{ room.people }}</p>
+    <p class="room-children">Total Children: {{ room.children }}</p>
+    <p class="room-amenities">Amenities: {{ room.amenities }}</p>
+    <p class="room-availability" [appAvailabilityColor]="room.isAvailable">
       Availability: {{ room.isAvailable ? "Available" : "Not Available" }}
     </p>
   </div>
 </div>
-
-<ng-template #notFound> Hotel not found </ng-template>
+<ng-template #notFound>Hotel not found</ng-template>

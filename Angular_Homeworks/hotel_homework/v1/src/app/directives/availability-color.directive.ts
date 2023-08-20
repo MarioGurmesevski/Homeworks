@@ -4,9 +4,10 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
   selector: '[appAvailabilityColor]',
 })
 export class AvailabilityColorDirective implements OnInit {
-  @Input() isAvailable: boolean = false;
+  @Input('appAvailabilityColor') isAvailable: boolean = false;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
+
   ngOnInit() {
     this.setBackgroundColor();
   }
@@ -16,10 +17,14 @@ export class AvailabilityColorDirective implements OnInit {
       this.renderer.setStyle(
         this.el.nativeElement,
         'background-color',
-        'green'
+        '#47b139'
       );
-    } else if (this.isAvailable === false) {
-      this.renderer.setStyle(this.el.nativeElement, 'background-color', 'red');
+    } else {
+      this.renderer.setStyle(
+        this.el.nativeElement,
+        'background-color',
+        '#ff4c4c'
+      );
     }
   }
 }

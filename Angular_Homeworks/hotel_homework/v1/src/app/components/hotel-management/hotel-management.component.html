@@ -1,9 +1,13 @@
-<div *ngFor="let hotel of hotels">
-  <a [routerLink]="['/hotels', hotel.id]">{{ hotel.name }}</a>
-  <p>Location: {{ hotel.address }} | {{ hotel.city }} | {{ hotel.country }}</p>
+<div *ngFor="let hotel of hotels" class="hotel-card">
+  <a [routerLink]="['/hotels', hotel.id]" class="hotel-name">{{
+    hotel.name
+  }}</a>
+  <p class="hotel-location">
+    Location: {{ hotel.address }} | {{ hotel.city }} | {{ hotel.country }}
+  </p>
 
-  <div class="rate">
+  <div class="hotel-rating rate">
     <p>Rating: {{ hotel.stars }}</p>
   </div>
-  <img src="{{ hotel.image }}" alt="{{ hotel.id }}" />
+  <img src="{{ hotel.image }}" alt="{{ hotel.id }}" class="hotel-image" />
 </div>
