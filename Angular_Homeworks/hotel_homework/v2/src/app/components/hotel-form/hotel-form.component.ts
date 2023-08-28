@@ -6,6 +6,9 @@ import { HotelsService } from 'src/app/service/hotels.service';
 import { Subscription, map, mergeMap } from 'rxjs';
 import { Hotel } from 'src/app/interface/hotel.interface';
 
+const urlRegex = /^((http|https|ftp|www):\/\/)?([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)(\.)([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]+)/g
+;
+
 @Component({
   selector: 'app-hotel-form',
   templateUrl: './hotel-form.component.html',
@@ -36,7 +39,7 @@ export class HotelFormComponent implements OnInit {
       '',
       Validators.compose([
         Validators.required,
-        Validators.pattern('https?://www.*'),
+        Validators.pattern(urlRegex),
       ])
     ),
 
@@ -141,6 +144,7 @@ export class HotelFormComponent implements OnInit {
         }
       });
   }
+  
   onSubmit() {
     const hotel = {
       ...this.hotelForm.value,

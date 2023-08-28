@@ -61,6 +61,27 @@
   font-size: 18px;
 }
 
+.nav-item a:hover {
+  font-weight: bold; 
+}
+
 .nav-item a.active {
   font-weight: bold;
+}
+
+.edit-button{
+    position: relative;
+    left: 1520px;
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    height: 60px;
+}
+.edit-button:hover {
+  background-color: #aaa;
 }

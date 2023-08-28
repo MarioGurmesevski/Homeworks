@@ -21,6 +21,10 @@
   .nav-item a.active {
     font-weight: bold;
   }
+
+  .nav-item a:hover {
+    font-weight: bold; 
+  }
   
   .hotel-form {
     margin: 30px auto;
@@ -42,7 +46,7 @@
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     border-radius: 4px;
     font-size: 14px;
   }

@@ -37,4 +37,7 @@ export class HotelManagementComponent implements OnInit {
       return '';
     }
   }
+  onEdit(hotelId: number) {
+    this.router.navigate(['/hotelform', hotelId]);
+  }
 }

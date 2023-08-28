@@ -84,3 +84,7 @@
 .nav-item a.active {
   font-weight: bold;
 }
+
+.nav-item a:hover {
+  font-weight: bold; 
+}
