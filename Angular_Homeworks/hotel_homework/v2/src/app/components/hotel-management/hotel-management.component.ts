@@ -40,4 +40,8 @@ export class HotelManagementComponent implements OnInit {
   onEdit(hotelId: number) {
     this.router.navigate(['/hotelform', hotelId]);
   }
+
+  onDelete(hotelId: number) {
+    this.hotelsService.deleteHotel(hotelId);
+  }
 }

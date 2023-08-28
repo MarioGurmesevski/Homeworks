@@ -25,5 +25,7 @@
     </h4>
   </div>
   <img src="{{ hotel.image }}" alt="{{ hotel.id }}" class="hotel-image" />
+
   <button (click)="onEdit(hotel.id)" class="edit-button">Edit</button>
+  <button (click)="onDelete(hotel.id)" class="delete-button">Delete</button>
 </div>

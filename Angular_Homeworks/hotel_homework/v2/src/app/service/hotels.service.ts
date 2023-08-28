@@ -474,4 +474,12 @@ export class HotelsService {
     };
     this.updateHotelData(hotels);
   }
+
+  deleteHotel(hotelId: number) {
+    let hotels: Hotel[] = this.hotelData.getValue();
+
+    hotels = hotels.filter((h) => h.id !== hotelId);
+
+    this.updateHotelData(hotels);
+  }
 }
