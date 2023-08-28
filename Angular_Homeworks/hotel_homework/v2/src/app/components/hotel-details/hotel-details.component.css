@@ -60,3 +60,28 @@
 .back-button:hover {
   background-color: #aaa;
 }
+
+
+.navigation {
+  background-color: #333;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  padding: 15px;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-item a.active {
+  font-weight: bold;
+}

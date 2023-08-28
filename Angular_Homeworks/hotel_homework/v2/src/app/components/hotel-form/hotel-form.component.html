@@ -1,21 +1,21 @@
-<nav>
-  <ul>
-    <li>
+<nav class="navigation">
+  <ul class="nav-list">
+    <li class="nav-item">
       <a routerLink="/hotels" routerLinkActive="active">Home</a>
     </li>
-    <li>
+    <li class="nav-item">
       <a routerLink="/hotelform" routerLinkActive="active">Hotel Form</a>
     </li>
   </ul>
 </nav>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="hotelForm">
+<form class="hotel-form" (ngSubmit)="onSubmit()" [formGroup]="hotelForm">
   <div>
     <label appRequiredField for="name">Name</label>
 
     <input type="text" id="name" name="name" formControlName="name" />
 
-    <p *ngIf="isNameInvalid">
+    <p *ngIf="isNameInvalid" class="warning">
       {{ nameHasErrorRequired ? "Name is required" : "" }}
       {{ nameHasErrorMinLength ? "Name can't be less than 6 characters" : "" }}
       {{ nameHasErrorMaxLength ? "Name can't be more than 20 characters" : "" }}
@@ -27,7 +27,7 @@
 
     <input type="text" id="country" name="country" formControlName="country" />
 
-    <p *ngIf="isCountryInvalid">Country is required</p>
+    <p *ngIf="isCountryInvalid" class="warning">Country is required</p>
   </div>
 
   <div>
@@ -35,7 +35,7 @@
 
     <input type="text" id="city" name="city" formControlName="city" />
 
-    <p *ngIf="isCityInvalid">City is required</p>
+    <p *ngIf="isCityInvalid" class="warning">City is required</p>
   </div>
 
   <div>
@@ -43,7 +43,7 @@
 
     <input type="text" id="address" name="address" formControlName="address" />
 
-    <p *ngIf="isAddressInvalid">Address is required</p>
+    <p *ngIf="isAddressInvalid" class="warning">Address is required</p>
   </div>
 
   <div>
@@ -51,7 +51,7 @@
 
     <input type="text" id="image" name="image" formControlName="image" />
 
-    <p *ngIf="isImageInvalid">
+    <p *ngIf="isImageInvalid" class="warning">
       {{ imageHasErrorRequired ? "Image is required" : "" }}
       {{ imageHasErrorPattern ? "Link is required" : "" }}
     </p>
@@ -66,10 +66,10 @@
       </option>
     </select>
 
-    <p *ngIf="isStarsInvalid">Rating Stars are required</p>
+    <p *ngIf="isStarsInvalid" class="warning">Rating Stars are required</p>
   </div>
 
   <div>
-    <button type="submit" [disabled]="hotelForm.invalid">Submit</button>
+    <button class="submit"type="submit" [disabled]="hotelForm.invalid">Submit</button>
   </div>
 </form>

@@ -1,13 +1,14 @@
-<nav>
-  <ul>
-    <li>
+<nav class="navigation">
+  <ul class="nav-list">
+    <li class="nav-item">
       <a routerLink="/hotels" routerLinkActive="active">Home</a>
     </li>
-    <li>
+    <li class="nav-item">
       <a routerLink="/hotelform" routerLinkActive="active">Hotel Form</a>
     </li>
   </ul>
 </nav>
+
 
 <div *ngFor="let hotel of hotel$ | async" class="hotel-card">
   <a [routerLink]="['/hotels', hotel.id]" class="hotel-name">{{
