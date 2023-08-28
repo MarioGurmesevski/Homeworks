@@ -1,0 +1,24 @@
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/hotels" routerLinkActive="active">Home</a>
+    </li>
+    <li>
+      <a routerLink="/hotelform" routerLinkActive="active">Hotel Form</a>
+    </li>
+  </ul>
+</nav>
+
+<div *ngFor="let hotel of hotel$ | async" class="hotel-card">
+  <a [routerLink]="['/hotels', hotel.id]" class="hotel-name">{{
+    hotel.name
+  }}</a>
+  <p class="hotel-location">
+    Location: {{ hotel.address }} | {{ hotel.city }} | {{ hotel.country }}
+  </p>
+
+  <div class="hotel-rating rate">
+    <p>Rating: {{ hotel.stars }}</p>
+  </div>
+  <img src="{{ hotel.image }}" alt="{{ hotel.id }}" class="hotel-image" />
+</div>
