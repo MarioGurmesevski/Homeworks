@@ -1,3 +1,4 @@
+import { StarRating } from '../../interface/star-rating.enum';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -19,5 +20,21 @@ export class HotelManagementComponent implements OnInit {
 
   getHotels(): Observable<Hotel[]> {
     return this.hotelsService.getHotels();
+  }
+
+  getStarRatingSymbol(rating: StarRating): string {
+    if (rating === StarRating.one) {
+      return '★';
+    } else if (rating === StarRating.two) {
+      return '★★';
+    } else if (rating === StarRating.three) {
+      return '★★★';
+    } else if (rating === StarRating.four) {
+      return '★★★★';
+    } else if (rating === StarRating.five) {
+      return '★★★★★';
+    } else {
+      return '';
+    }
   }
 }

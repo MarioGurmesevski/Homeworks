@@ -28,7 +28,7 @@ export class HotelFormComponent implements OnInit {
 
     city: new FormControl<string>('', Validators.required),
 
-    star: new FormControl<string>('', Validators.required),
+    star: new FormControl<StarRating>(StarRating.one, Validators.required),
 
     country: new FormControl<string>('', Validators.required),
 
@@ -150,7 +150,6 @@ export class HotelFormComponent implements OnInit {
       this.hotelsService.updateHotel(hotel as Hotel);
     } else {
       this.hotelsService.addHotel(hotel as Hotel);
-      // console.log(hotel);
     }
 
     this.router.navigate(['/hotels']);

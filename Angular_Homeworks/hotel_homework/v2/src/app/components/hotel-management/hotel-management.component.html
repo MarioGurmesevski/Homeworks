@@ -17,8 +17,11 @@
     Location: {{ hotel.address }} | {{ hotel.city }} | {{ hotel.country }}
   </p>
 
-  <div class="hotel-rating rate">
-    <p>Rating: {{ hotel.stars }}</p>
+  <div class="hotel-rating">
+    <h4>
+      Rating:
+      <p class="rate">{{ getStarRatingSymbol(hotel.stars) }}</p>
+    </h4>
   </div>
   <img src="{{ hotel.image }}" alt="{{ hotel.id }}" class="hotel-image" />
 </div>
