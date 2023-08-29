@@ -141,6 +141,8 @@ export class HotelFormComponent implements OnInit {
             ...hotel,
           };
           this.hotelForm.patchValue(hoteL);
+        }else{
+          this.router.navigate(['/hotelform']);
         }
       });
   }

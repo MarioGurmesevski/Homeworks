@@ -443,12 +443,14 @@ export class HotelsService {
   private hotelData: BehaviorSubject<Hotel[]> = new BehaviorSubject<Hotel[]>(
     this.hotelsMainData
   );
+  
+  hotels$: Observable<Hotel[]> = this.hotelData.asObservable();
+
   private updateHotelData(hotels: Hotel[]): void {
     this.hotelData.next(hotels);
     // console.log(hotels);
   }
 
-  hotels$: Observable<Hotel[]> = this.hotelData.asObservable();
 
   getHotels(): Observable<Hotel[]> {
     // console.log(this.hotels$);
