@@ -23,7 +23,7 @@ export class HotelManagementComponent implements OnInit {
   }
 
   getStarRatingSymbol(rating: StarRating): string {
-    console.log(rating);
+    // console.log(rating);
     if (rating === StarRating.one) {
       return '★';
     } else if (rating === StarRating.two) {

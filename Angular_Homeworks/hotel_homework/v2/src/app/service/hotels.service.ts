@@ -457,11 +457,11 @@ export class HotelsService {
   }
 
   addHotel(hotel: Hotel) {
-    console.log(hotel);
+    // console.log(hotel);
     const hotels = this.hotelData.getValue();
     hotels.push(hotel);
 
-    console.log(hotels);
+    // console.log(hotels);
 
     this.updateHotelData(hotels);
   }
