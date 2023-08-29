@@ -6,9 +6,8 @@ import { HotelsService } from 'src/app/service/hotels.service';
 import { Subscription, map, mergeMap } from 'rxjs';
 import { Hotel } from 'src/app/interface/hotel.interface';
 
-const urlRegex = /^((http|https|ftp|www):\/\/)?([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)(\.)([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]+)/g
-;
-
+const urlRegex =
+  /^((http|https|ftp|www):\/\/)?([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)(\.)([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]+)/g;
 @Component({
   selector: 'app-hotel-form',
   templateUrl: './hotel-form.component.html',
@@ -31,16 +30,13 @@ export class HotelFormComponent implements OnInit {
 
     city: new FormControl<string>('', Validators.required),
 
-    star: new FormControl<StarRating>(StarRating.one, Validators.required),
+    stars: new FormControl<StarRating>(StarRating.one, Validators.required),
 
     country: new FormControl<string>('', Validators.required),
 
     image: new FormControl<string>(
       '',
-      Validators.compose([
-        Validators.required,
-        Validators.pattern(urlRegex),
-      ])
+      Validators.compose([Validators.required, Validators.pattern(urlRegex)])
     ),
 
     // rooms: new FormArray([]),
@@ -141,12 +137,12 @@ export class HotelFormComponent implements OnInit {
             ...hotel,
           };
           this.hotelForm.patchValue(hoteL);
-        }else{
+        } else {
           this.router.navigate(['/hotelform']);
         }
       });
   }
-  
+
   onSubmit() {
     const hotel = {
       ...this.hotelForm.value,

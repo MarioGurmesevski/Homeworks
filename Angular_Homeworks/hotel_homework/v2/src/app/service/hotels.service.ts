@@ -443,7 +443,7 @@ export class HotelsService {
   private hotelData: BehaviorSubject<Hotel[]> = new BehaviorSubject<Hotel[]>(
     this.hotelsMainData
   );
-  
+
   hotels$: Observable<Hotel[]> = this.hotelData.asObservable();
 
   private updateHotelData(hotels: Hotel[]): void {
@@ -451,18 +451,17 @@ export class HotelsService {
     // console.log(hotels);
   }
 
-
   getHotels(): Observable<Hotel[]> {
     // console.log(this.hotels$);
     return this.hotels$;
   }
 
   addHotel(hotel: Hotel) {
-    // console.log(hotel);
+    console.log(hotel);
     const hotels = this.hotelData.getValue();
     hotels.push(hotel);
 
-    // console.log(hotels);
+    console.log(hotels);
 
     this.updateHotelData(hotels);
   }

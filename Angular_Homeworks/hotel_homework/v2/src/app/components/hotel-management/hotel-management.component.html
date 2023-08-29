@@ -9,7 +9,6 @@
   </ul>
 </nav>
 
-
 <div *ngFor="let hotel of hotel$ | async" class="hotel-card">
   <a [routerLink]="['/hotels', hotel.id]" class="hotel-name">{{
     hotel.name

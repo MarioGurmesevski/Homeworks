@@ -59,7 +59,7 @@
 
   <div>
     <label appRequiredField for="star">Stars</label>
-    <select name="star" id="star" formControlName="star">
+    <select name="star" id="star" formControlName="stars">
       <option value="" selected disabled>Select...</option>
       <option *ngFor="let star of stars" [value]="star">
         {{ star }}
@@ -70,6 +70,8 @@
   </div>
 
   <div>
-    <button class="submit"type="submit" [disabled]="hotelForm.invalid">Submit</button>
+    <button class="submit" type="submit" [disabled]="hotelForm.invalid">
+      Submit
+    </button>
   </div>
 </form>
