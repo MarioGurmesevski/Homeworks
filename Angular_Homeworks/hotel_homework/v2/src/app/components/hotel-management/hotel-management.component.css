@@ -3,7 +3,7 @@
   border: 1px solid #ddd;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 20px;
 }
 
@@ -29,7 +29,7 @@
   max-height: 150px;
   margin-top: 10px;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .hotel-rating {
@@ -62,44 +62,44 @@
 }
 
 .nav-item a:hover {
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .nav-item a.active {
   font-weight: bold;
 }
 
-.edit-button{
-    position: relative;
-    bottom: 60px;
-    left: 1520px;
-    background-color: #ccc;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 150px;
-    height: 60px;
+.edit-button {
+  position: relative;
+  bottom: 50px;
+  left: 1520px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  height: 60px;
 }
 .edit-button:hover {
   background-color: #f1e869;
 }
 
-.delete-button{
-    position: relative;
-    bottom: 160px;
-    left: 1370px;
-    background-color: #ccc;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 150px;
-    height: 60px;
+.delete-button {
+  position: relative;
+  bottom: 170px;
+  left: 1370px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  height: 60px;
 }
 .delete-button:hover {
   background-color: #ff4c4c;
