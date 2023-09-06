@@ -1,4 +1,4 @@
-.container {
+.room-item {
   padding: 20px;
   border: 1px solid #ddd;
   background-color: #fff;
@@ -46,21 +46,6 @@
   font-weight: bold;
 }
 
-.back-button {
-  background-color: #ccc;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-  background-color: #aaa;
-}
-
-
 .navigation {
   background-color: #333;
 }
@@ -86,5 +71,71 @@
 }
 
 .nav-item a:hover {
-  font-weight: bold; 
+  font-weight: bold;
+}
+
+.delete-button,
+.edit-button,
+.create-room-button {
+  position: relative;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  height: 60px;
+}
+
+.edit-button {
+  bottom: 345px;
+  left: 1680px;
+}
+.edit-button:hover {
+  background-color: #f1e869;
+}
+
+.delete-button {
+  left: 1530px;
+}
+.delete-button:hover {
+  background-color: #ff4c4c;
+}
+
+.back-button {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button {
+  bottom: 20px;
+  left: 20px;
+}
+
+.back-button:hover {
+  background-color: #aaa;
+}
+
+.create-room-button {
+  top: 30px;
+  left: 1720px;
+}
+
+.create-room-button:hover {
+  background-color: #2bb82b;
+}
+
+.create-room-button > a {
+  text-decoration: none;
+  color: black;
 }

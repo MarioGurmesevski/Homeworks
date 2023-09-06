@@ -22,7 +22,7 @@ export class HotelFormComponent implements OnInit {
       Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(20),
+        Validators.maxLength(40),
       ])
     ),
 
@@ -38,8 +38,6 @@ export class HotelFormComponent implements OnInit {
       '',
       Validators.compose([Validators.required, Validators.pattern(urlRegex)])
     ),
-
-    // rooms: new FormArray([]),
   });
 
   stars = Object.values(StarRating);

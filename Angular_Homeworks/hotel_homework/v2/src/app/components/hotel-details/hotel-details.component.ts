@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, map, mergeMap } from 'rxjs';
 import { Hotel } from 'src/app/interface/hotel.interface';
 import { HotelsService } from 'src/app/service/hotels.service';
@@ -16,6 +16,7 @@ export class HotelDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private location: Location,
     private hotelsService: HotelsService
   ) {}
@@ -38,6 +39,11 @@ export class HotelDetailsComponent implements OnInit, OnDestroy {
   goBack() {
     this.location.back();
   }
+
+  onDelete(roomId: number, hotelId: number) {
+    this.hotelsService.deleteRoom(roomId, hotelId);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Hotel } from '../interface/hotel.interface';
+import { Hotel, Rooms } from '../interface/hotel.interface';
 import { StarRating } from '../interface/star-rating.enum';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -447,6 +447,7 @@ export class HotelsService {
   hotels$: Observable<Hotel[]> = this.hotelData.asObservable();
 
   private updateHotelData(hotels: Hotel[]): void {
+    console.log(hotels);
     this.hotelData.next(hotels);
     // console.log(hotels);
   }
@@ -473,6 +474,7 @@ export class HotelsService {
       ...hotels[index],
       ...hotel,
     };
+
     this.updateHotelData(hotels);
   }
 
@@ -482,5 +484,27 @@ export class HotelsService {
     hotels = hotels.filter((h) => h.id !== hotelId);
 
     this.updateHotelData(hotels);
+  }
+
+  createRoom(hotelId: number, room: Rooms) {
+    const hotels = this.hotelData.getValue();
+    const hotelIndex = hotels.findIndex((h) => h.id === hotelId);
+
+    if (hotelIndex !== -1) {
+      hotels[hotelIndex].rooms.push(room);
+      this.updateHotelData(hotels);
+    }
+  }
+
+
+  deleteRoom(roomId: number, hotelId: number) {
+    let hotels: Hotel[] = this.hotelData.getValue();
+
+    const hotel = hotels.find((h) => h.id === hotelId);
+
+    if (hotel) {
+      hotel.rooms = hotel.rooms.filter((room) => room.id !== roomId);
+      this.updateHotelData(hotels);
+    }
   }
 }

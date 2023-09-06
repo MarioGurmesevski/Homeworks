@@ -1,3 +1,115 @@
-<p>
-  room-form works!
-</p>
+<nav class="navigation">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a routerLink="/hotels" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/hotelform" routerLinkActive="active">Hotel Form</a>
+    </li>
+  </ul>
+</nav>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="roomForm" class="room-form">
+  <div>
+    <label appRequiredField for="name">Name</label>
+
+    <input type="text" id="name" name="name" formControlName="name" />
+
+    <p *ngIf="isRoomNameInvalid" class="warning">Name is required</p>
+  </div>
+
+  <div>
+    <label appRequiredField for="description">Description</label>
+
+    <input
+      type="text"
+      id="description"
+      name="description"
+      formControlName="description"
+    />
+
+    <p *ngIf="isRoomDescriptionInvalid" class="warning">
+      Description is required
+    </p>
+  </div>
+
+  <div>
+    <label appRequiredField for="image">Image</label>
+
+    <input type="url" id="image" name="image" formControlName="image" />
+
+    <p *ngIf="isRoomImageInvalid" class="warning">
+      {{ roomImageErrorRequired ? "Image is required" : "" }}
+      {{ roomImageHasErrorPattern ? "Link is required" : "" }}
+    </p>
+  </div>
+
+  <div>
+    <label appRequiredField for="price">Price</label>
+
+    <input type="number" id="price" name="price" formControlName="price" />
+
+    <p *ngIf="isRoomPriceInvalid" class="warning">
+      {{ roomPriceErrorRequired ? "Price is required" : "" }}
+      {{ roomPriceErrorMin ? "Minimum Price must be 1" : "" }}
+    </p>
+  </div>
+
+  <div>
+    <label appRequiredField for="people">People</label>
+
+    <input type="number" id="people" name="people" formControlName="people" />
+
+    <p *ngIf="isRoomPeopleInvalid" class="warning">
+      {{ roomPeopleErrorRequired ? "People are required" : "" }}
+      {{ roomPeopleErrorMin ? "Minimum people must be 1" : "" }}
+    </p>
+  </div>
+
+  <div>
+    <label appRequiredField for="children">Children</label>
+
+    <input
+      type="number"
+      id="children"
+      name="children"
+      formControlName="children"
+    />
+
+    <p *ngIf="isRoomChildrenInvalid" class="warning">Children is required</p>
+  </div>
+
+  <div>
+    <label appRequiredField for="amenities">Amenities</label>
+
+    <input
+      type="text"
+      id="amenities"
+      name="amenities"
+      formControlName="amenities"
+    />
+
+    <p *ngIf="isRoomAmenitiesInvalid" class="warning">Amenities is required</p>
+  </div>
+
+  <div>
+    <label appRequiredField for="isAvailable">Is it Available</label>
+
+    <input
+      type="text"
+      id="isAvailable"
+      name="isAvailable"
+      formControlName="isAvailable"
+    />
+
+    <p *ngIf="isRoomAvailableInvalid" class="warning">
+      Availability is required true or false
+    </p>
+  </div>
+
+  <div>
+    <button class="submit" type="submit" [disabled]="roomForm.invalid">
+      Submit
+    </button>
+  </div>
+</form>

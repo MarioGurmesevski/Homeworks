@@ -1,0 +1,78 @@
+.navigation {
+  background-color: #333;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  padding: 15px;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-item a.active {
+  font-weight: bold;
+}
+
+.nav-item a:hover {
+  font-weight: bold;
+}
+
+.room-form {
+  margin: 30px auto;
+  width: 400px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #f9f9f9;
+}
+
+.room-form label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.room-form input,
+.room-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.warning {
+  color: red;
+  font-size: 16;
+  margin-bottom: 3px;
+}
+
+.submit {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #aaa;
+}
+
+.submit[disabled] {
+  background-color: #4d4d4d;
+  cursor: not-allowed;
+}
