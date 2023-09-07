@@ -75,7 +75,6 @@
 }
 
 .delete-button,
-.edit-button,
 .create-room-button {
   position: relative;
   background-color: #ccc;
@@ -87,14 +86,6 @@
   transition: background-color 0.3s ease;
   width: 150px;
   height: 60px;
-}
-
-.edit-button {
-  bottom: 345px;
-  left: 1680px;
-}
-.edit-button:hover {
-  background-color: #f1e869;
 }
 
 .delete-button {
@@ -128,7 +119,7 @@
 
 .create-room-button {
   top: 30px;
-  left: 1720px;
+  left: 1580px;
 }
 
 .create-room-button:hover {
